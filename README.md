@@ -43,6 +43,20 @@ VotingSystem/
    ```
 4. **Access the application**
    - Open `http://localhost:8080` in your browser
+  
+
+## API Key Setup
+
+To use this project, you need to fetch an API key from [API Provider's Website](https://newsapi.org/v2/).  
+
+1. Visit the website and sign up/log in.  
+2. Navigate to the API section and generate a new API key.  
+3. Copy the key and add it to your configuration file(application.properties:
+   news-api-key = Generated API KEY
+)
+
+Example:  
+news-api-key=your_api_key_here
 
 ## 📸 Screenshots
 ![Voting Page](src/main/resources/static/assets/images/images1.jpg)

@@ -58,5 +58,7 @@ To use this project, you need to fetch an API key from [API Provider's Website](
 Example:  
 news-api-key=your_api_key_here
 
+#Make Sure To Setup Email App Password in application.properties file.
+
 ## 📸 Screenshots
 ![Voting Page](src/main/resources/static/assets/images/images1.jpg)

@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* ,*::before , *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  background: white;
+  margin: 1rem;
+}
+.form {
+  margin: 0 0.8rem;
+}
+h2 {
+  font-family 'Open Sans':
+}
+.content div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.content div .mail label, .content div .mail input {
+  display: block;
+  width: 100%;
+}
+.content div .mail .verify {
+  color: black;
+  font-size: 'Nunito';
+  display: inline-block;
+  align-items: center;
+}
+.content div .mail .verify .link, .content div .mail .verify .link:visited {
+    color: red;
+    text-decoration: none;
+    transition: all 0.5s;
+    font-family: 'Lato';
+}
+.content div .mail .verify .link{
+    background: transparent;
+    color:red;
+    border: none;
+    outline: none;
+}
+.content div .mail .verify .link:hover, .content div .mail .verify .link:focus {
+    color: red;
+    opacity: 0.7;
+    text-decoration: underline;
+}
+.inputs {
+  width: 100%;
+  height: 2.7rem;
+  outline: none;
+  background: transparent;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px 0px whitesmoke;
+  backdrop-filter: blur(1.5rem);
+  padding-left: 0.3rem;
+  border: 1px solid darkgray;
+}
+input[data-dis='yes'] {
+   opacity: 0.5;
+   background: lightgrey;
+}
+.content div label {
+  margin-top: 0.8rem;
+  font-style: italic;
+  color: rgba(10,25,30,0.8);
+  font-family: 'Lato', sans-serif;
+}
+.header {
+  font-weight: bolder;
+  color: red;
+  margin-top: 0.8rem;
+  text-transform: capitalize;
+  display: block;
+}
+.update input{
+  margin: 0.5rem 0;
+  font-family: 'Rubik';
+}
+.btns {
+  width: max(80px);
+  height: 2.5rem;
+  background: red;
+  border: none;
+  outline: none;
+  box-shadow: 0px 0px 8px 0px darkgray;
+  backdrop-filter: blur(1.5rem);
+  border-radius: 10px;
+  color: whitesmoke
+  font-family: 'Lato';
+  margin: 1rem 0.8rem;
+}
+.response {
+   transition: all 0.8s;
+   font-style: italic;
+   width: 100%;
+   display: block;
+   font-family: 'Lato';
+}
+.remove {
+   opacity : 0;
+}
+.showPwd {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  font-family: monospace, sans-serif;
+}

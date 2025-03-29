@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="http://www/thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>VOTING SYSTEM | RESET PASSWORD</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+    *, *::before , *::after {
+      margin: 0;
+      padding; 0;
+      box-sizing: border-box;
+    }
+    html , body {
+      height: 100%;
+    }
+    .container {
+      width: 100%;
+      max-width: 500px;
+      margin: 1rem auto;
+    }
+      .content {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+	gap: 0.8rem;
+      }
+      input {
+       height: 2.3rem;
+       width: 100%;
+       border: none;
+       box-shadow: 0px 0px 16px 0px darkgray;
+       backdrop-filter: blur(2rem);
+       outline: none;
+       font-family: 'Lato';
+       text-indent: 7px;
+       border-radius:  25px;
+      }
+      label {
+        font-weight: bolder;
+        font-family: 'Open Sans';
+      }
+      h2 {font-family: 'Nunito';}
+      button {
+         height: 2.5rem;
+         width: max(100px);
+         background: red;
+         color: white;
+         font-family: 'Merriweather';
+         border: 5px solid whitesmoke;
+      }
+    </style>
+</head>
+<body>
+  <main class="container">
+   <form th:object="${userProfile}" th:method="post">
+    <div class="content">
+      <h2>RESET</h2>
+      <label>You are required to fill the given fields below.</label>
+      <section th:text="${resetResponse}" style="text-align:left; color: red; font-size: 0.9rem; margin: 0.4rem 0;"></section>
+      <input type="text" placeholder="Username" th:field="*{username}">
+      <input type="password" placeholder="Old Password" th:field="*{oldPassword}">
+      <input type="password" placeholder="New Password" th:field="*{password}">
+      <input type="password" placeholder="Confirm New Password" th:field="*{confirmPassword}">
+      <button th:formaction="@{/user/reset/password}">CHANGE</button>
+    </div>
+   </form>
+  </main>
+</body>
+</html>

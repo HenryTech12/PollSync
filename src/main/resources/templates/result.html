@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voting System | Poll Live Result</title>
+  <link rel="stylesheet" th:href="@{/css/result.css}"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&" />
+</head>
+
+<body>
+  <main class="container">
+    <form th:object="${pollDTO}" method="post">
+     <div class="content">
+       <header class="header">
+         <img th:src="@{/assets/images/voteIcon.png}" width="40" height="40" alt="vote icon">
+         <section>
+             <h2>Vote For Your Candidate</h2>
+             <span>Cast your vote and watch live results &#128071;</span>
+         </section>
+       </header>
+       <section class="vote-design">
+         <label class="question" th:field="*{question}" th:text="*{question}">Is elon musk the greatest man in space?</label>
+       </section>
+       <section class="results">
+         <h2>Live Votes</h2>
+         <div th:each="msg : ${message}">
+           <section>
+             <span th:text="${msg.key}">Option A has total votes of 10</span>
+             <div class="design">
+               <p class="bar"></p>
+             </div>
+             <span class="value" hidden th:text="${msg.value}">30</span>
+           </section>
+         </div>
+          <footer class="footer">
+            <section>
+              <span class="material-symbols-outlined">all_inclusive</span>
+              <label class="label">Poll Created By : </label>
+               <label th:text="${user}" th:field="${user}">HenryTech</label>
+            </section>
+            <section>
+              <span class="material-symbols-outlined">pin_end</span>
+              <label class="label">Poll Ends In : <span th:field="${timeout}" th:text="${timeout}"></span></label>
+            </section>
+            <section>
+              <label th:text="${error}" style="color: red;"></label>
+            </section>
+          </footer>
+       </section> 
+     </div>
+    </form>
+  </main>
+  <script th:src="@{/js/result.js}"></script>
+</body>
+
+</html>

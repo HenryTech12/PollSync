@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voting System | Cast Your Vote!</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+    *, *::before , *::after {
+      margin: 0;
+      padding; 0;
+      box-sizing: border-box;
+    }
+    html , body {
+      height: 100%;
+    }
+    .container {
+      width: 80%;
+      max-width: 500px;
+      height: auto;
+      margin: 1rem auto;
+      transform: translateY(100%);
+      transform-origin: center;
+      transition: all 1s linear;
+    }
+    h2 {
+      font-weight: 300;
+      font-style: italic;
+      font-family: 'Merriweather';
+    }
+    span {
+      display: block;
+      margin: 0.5rem auto;
+      font-family: 'Lato';
+    }
+    span::before {
+       content: '*';
+       margin-right: 0.3rem;
+       color: red;
+    }
+    input {
+      height: 2.7rem;
+      width: 100%;
+      margin: 0 auto 0.8rem auto;
+      border: none;
+      outline: none;
+      border-radius: 25px;
+      font-family: 'Lato';
+      padding-left: 0.8rem;
+      box-shadow: 1px 1px 8px 1px darkgray;
+      backdrop-filter: blur(5px);
+    }
+    button {
+      height: 2.5rem;
+      width: 100px;
+      font-size: 1.2rem;
+      color: whitesmoke;
+      font-weight: bolder;
+      background: red;
+      border: none;
+      font-family: 'Nunito';
+      outline: none;
+      box-shadow: 0px 0px 6px 0px darkgray;
+      backdrop-filter: blur(5px);
+      white-space: nowrap;
+      clip-path: circle(45px);
+      
+    }
+    .err {
+        color: red;
+        font-family: 'Lato';
+        font-size: 1.05rem;
+        text-align: left;
+        margin: 0.4rem 0;
+    }
+    @media screen and (min-width: 600px) {
+      .container {
+        border: 1px solid black;
+        margin: 5rem;
+        padding: 3rem;
+        margin: 0 auto;
+        transform: translateY(5%);
+        border-radius: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+    <main class="container">
+        <form th:object="${pollDTO}" method="post">
+       <h2>Vote ID</h2>
+       <span>marks the field is required</span>
+       <input type="text" placeholder="Enter Vote ID" th:field="*{voteId}">
+       <section>
+          <button th:formaction="@{/poll/result}">Continue</button>
+          <button>Go back</button>
+       </section>
+            <span th:field="${error}" th:text="${error}" class="err"></span>
+        </form>
+    </main>
+</body>
+
+</html>

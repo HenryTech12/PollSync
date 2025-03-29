@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+</head>
+<link rel="stylesheet" th:href="@{/css/login.css}" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<body>
+  <main class="container">
+    <span th:text="${passwordResponse}" style="color: red;"></span>
+    <form th:object="${userDTO}" method="post">
+    <header>
+      <h2>Login</h2>
+    </header>
+    <span class="required"> with asterisks mark required fields</span>
+    <span th:if="${check}" class="error">Invalid Login Details</span>
+    <div class="content">
+
+      <section>
+        <span class="material-symbols-outlined icon">id_card</span>
+        <input type="text" placeholder="Username" th:field="*{username}">
+      </section>
+
+      <section>
+        <span class="material-symbols-outlined icon">lock</span>
+        <input type="password" placeholder="Password" th:field="*{password}">
+      </section>
+
+     <section class="mybtns">
+      <button id="submit" th:formaction="@{/user/login}">
+        <span>Sign In</span>
+       
+        <span class="material-symbols-outlined" id="move">arrow_forward</span>
+      </button>
+
+      <button th:formaction="@{/user/register}">
+        <span>Sign Up</span>
+
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </button>
+     </section>
+      <section class="reset">
+        <a th:href="@{/user/reset}">Forgot Password</a>
+      </section>
+    </div>
+    </form>
+  </main>
+  <script th:src="@{/js/login.js}"></script>
+</body>
+
+</html>

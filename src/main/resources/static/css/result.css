@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* ,*::before , *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  margin: 1rem;
+}
+.content .header {
+  text-align: center;
+  margin: 1rem 0;
+}
+.content .header h2 {
+  font-size: 2rem;
+  font-family: 'Merriweather';
+  
+}
+.content .header img {
+  width: 100px;
+  height: 100px;
+  display: block;
+  background: transparent;
+  margin: 0 auto;
+}
+.content .header span {
+  display: block;
+  color: darkgray;
+  font-family: 'Nunito';
+}
+.design{
+  border: 1.5px solid black;
+  box-shadow: 0px 0px 8px 0px darkgray;
+  background: transparent;
+  width: 100%;
+  height: 1.5rem;
+}
+.vote-design {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.vote-design .question {
+  display: block;
+  font-size: 2rem;
+  text-transform: capitalize;
+  font-family: 'Merriweather';
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 1px solid black;
+  padding: 0.8rem;
+  flex-direction: column;
+  text-align: left;
+}
+
+.footer label:first-child {
+  font-weight: bolder;
+  display: block;
+}
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 15px;
+  margin: 0.5rem 0;
+}
+.results h2 {
+  font-family: 'Nunito';
+}
+.results section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: 'Lato';
+}
+.footer section {
+  font-family: 'Merriweather';
+}
+.results section .label {
+  font-weight: bolder;
+  font-style: italic;
+}
+.design .bar {
+  background: yellow;
+  height: calc(1.5rem - 3px);
+  color: red;
+  width: 100%;
+  display: inline-block;
+  transition: all 0.8s;
+}

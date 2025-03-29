@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voting System | News Update</title>
+  <link rel="stylesheet" th:href="@{/css/newsletter.css}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+</head>
+
+<body>
+    <main class="container">
+     <form th:object="${newsList}">
+      <header>
+        <h2>The News</h2>
+        <span class="material-symbols-outlined close">menu</span>
+      </header>
+      <nav class="links">
+           <ol class="popup">
+            <li><a th:href="@{/home}">Home</a></li>
+            <li><a th:href="@{/poll/create-poll}">Poll</a></li>
+            <li><a>Logout</a></li>
+          </ol>
+      </nav>
+       <section class="inputs">
+           <input type="text" placeholder="Search By Country or Sources" name="q">
+           <button class="material-symbols-outlined" th:formaction="@{/search/news}">search</button>
+       </section>
+      <div class="content">
+        <section class="news">
+          <button th:each="news : *{articles}">
+           <img th:src="${news.urlToImage}" width="40" height="40">
+           <h2 class="title" th:text="${news.title}">Title: Bye-bye bots: Altera's game-playing AI agents get backing from Eric Schmidt | TechCrunch</h2>
+           <span class="desc" th:text="${news.description}">Description: Autonomous, AI-based players are coming to a gaming experience near you, and a new startup, Altera, is joining the fray to build this new guard of AI Research company Altera raised $9 million to build AI agents that can play video games alongside other player…</span>
+           <span class="publish" th:text="${news.publishedAt}">Published At: 2024-05-08T15:14:57Z</span>
+           <span class="author" th:text="${news.author}"> <span>Author: </span>Lauren Forristal</span>
+          </button>
+        </section>
+          <span class="error" th:text="${error}"></span>
+      </div>
+     </form>
+    </main>
+    <script>
+      let closeBtn = document.querySelector('.close');
+      let popup = document.querySelector('.popup');
+      let i = 0;
+      closeBtn.addEventListener('click',() => {
+          if(i % 2 == 0) {
+            closeBtn.textContent = 'close';
+            popup.style.display = 'block';
+            i++;
+          }
+          else {
+            closeBtn.textContent = 'menu';
+            popup.style.display = 'none';
+            i++;
+          }
+      });
+    </script>
+</body>
+
+</html>

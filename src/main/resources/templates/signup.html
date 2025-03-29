@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" th:href="@{/css/signup.css}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+  <main class="container">
+    <form th:object="${userDTO}" th:method="post">
+    <header>
+      <h2>Registration Form</h2>
+      <section>
+        We’re thrilled to have you join our community. By registering, you’re taking the first step toward making your voice heard. Whether it’s voting in polls, ranking content, or contributing to exciting community contests, your participation matters.
+      </section>
+    </header>
+    <div class="content">
+      <section>
+        <span class="material-symbols-outlined icon">account_circle</span>
+        <input type="text" placeholder="Your First Name" th:field="*{firstName}">
+        <label>First Name</label>
+      </section>
+      
+      <section>
+        <span class="material-symbols-outlined icon">person_pin_circle</span>
+        <input type="text" placeholder="Your Last Name" th:field="*{lastName}">
+        <label>Last Name</label>
+      </section>
+      
+      <section>
+        <span class="material-symbols-outlined icon">id_card</span>
+        <input type="text" placeholder="Username" th:field="*{username}">
+        <label>Username</label>
+      </section>
+      
+      <section>
+        <span class="material-symbols-outlined icon">wc</span>
+        <select th:field="*{gender}">
+           <optgroup label="Gender">
+             <option th:value="Male">Male</option>
+             <option th:value="Female">Female</option>
+             <option th:value="Others">Others</option>
+           </optgroup>
+        </select>
+        <label>Gender</label>
+      </section>
+      
+      <section>
+        <span class="material-symbols-outlined icon">calendar_month</span>
+         <input type="date" placeholder="Date Of Birth" th:field="*{dateOfBirth}">
+         <label>Date Of Birth</label>
+      </section>
+      
+      <section>
+        <span class="material-symbols-outlined icon">call</span>
+        <input type="email" placeholder="Email" th:field="*{email}">
+        <label>Email</label>
+      </section>
+      
+      <section class="pwd">
+        <span class="material-symbols-outlined icon">lock</span>
+        <input type="password" placeholder="Password" id="pwd" th:field="*{password}">
+        <span class="material-symbols-outlined input-icon" id="pwdVisibility">visibility</span>
+        <label>Password</label>
+      </section>
+      
+      <button id="signup" th:formaction="@{/user/add}">
+        <span>Sign Up</span>
+        <span class="material-symbols-outlined arrow" id="loading">arrow_right_alt</span>
+      </button>
+    </div>
+    </form>
+    <script th:src="@{/js/signup.js}"></script>
+  </main>
+</body>
+
+</html>

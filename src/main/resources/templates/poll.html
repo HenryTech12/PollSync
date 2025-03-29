@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voting System | Cast Your Vote</title>
+  <link rel="stylesheet" th:href="@{/css/poll.css}" />
+</head>
+
+<body>
+  <main class="container">
+      <form th:object="${pollDTO}" method="post">
+     <div class="content">
+         <header>
+             <img th:src="@{/assets/images/voteIcon.png}" width="40" height="40" alt="voteIcon">
+             <section>
+                 <h2>Cast Your Vote</h2>
+                 <label>Click on the options below to cast your vote &#128071;</label>
+                 <label>Voting is on!</label>
+             </section>
+         </header>
+
+         <span th:text="*{voted}" th:field="*{voted}" hidden id="allow"></span>
+         <span th:text="${voteID}" th:field="${voteID}" hidden></span>
+
+        <section class="cast">
+            <p th:text="*{question}" th:field="*{question}">What is the Full Meaning Of HTML</p>
+            <div class="options" th:each="pollOption , stat : *{option.options}">
+                  <button class="show" th:formaction="@{/poll/update(voteID=${voteID},pos=${stat.index})}">
+                    <section class="option">
+                       <div>
+                            <input type="radio" class="rad">
+                            <span th:text="${pollOption}" th:field="${pollOption}">Hyper</span>
+                       </div>
+                    </section>
+                    <div class="range" id="range">
+                       <section id="r-input"></section>
+                    </div>
+                      <span id="result" th:field="*{option.results[__${stat.index}__]}" th:text="*{option.results[__${stat.index}__]}" class="result">0</span>
+                      <span th:text="${error}" style="color: red;"></span>
+                  </button>
+               </div>
+        </section>
+       </div>
+      </form>
+     <script th:src="@{/js/poll.js}"></script>
+  </main>
+</body>
+
+</html>

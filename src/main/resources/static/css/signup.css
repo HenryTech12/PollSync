@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*, *::before , *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+.container {
+  background: transparent;
+  background-size: cover;
+  padding: 0.5rem;
+}
+header {
+  text-align: center;
+  margin: 1rem 0;
+}
+header h2 {
+  font-family: 'Merriweather';
+}
+header section {
+  font-style: italic;
+  color: red;
+  font-family: 'Nunito';
+}
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  grid-auto-rows: minmax(3rem, auto);
+  grid-gap: 1rem;
+}
+
+.content section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0.5rem 0;
+  position: relative;
+}
+.content input , .content select {
+  height: 2.7rem;
+  padding-left: 35px;
+  border: none;
+  box-shadow: 0px 0px 8px 0px darkgray;
+  outline: none;
+  border-radius: 25px;
+  background: whitesmoke;
+  backdrop-filter: blur(5px);
+  font-family: 'Open Sans';
+}
+.content section label {
+  font-size: 0.8rem;
+  color: rgba(0,0,0,0.5);
+  padding-left: 0.5rem;
+  font-family: 'Lato';
+}
+.content input[type=date] {
+  width: 100%;
+}
+.content .pwd {
+  grid-column: 1/-1;
+}
+
+.content button {
+  height: 2.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: red;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 10px;
+  font-family: 'Kanit';
+  align-content: center;
+  vertical-align: center;
+  transition: gap 10s;
+}
+.content button span:first-child {
+  font-size: 1.3rem;
+}
+.content section .input-icon {
+  position: absolute;
+  right: 20px;
+  transform: translateY(60%);
+}
+.content section .icon {
+  position: absolute;
+  z-index: 3;
+  transform: translate(10px,14px);
+}
+.move {
+  animation-name: moveIcon;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  transition: all 0.8s;
+}
+.rotate {
+  animation-name: rotateI;
+  color: seagreen;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.space {
+  gap: 0.3rem;
+}
+@keyframes rotateI {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes moveIcon {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(200px);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+}

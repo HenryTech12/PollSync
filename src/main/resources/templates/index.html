@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+
+  <!-- HTML -->
+
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+</head>
+
+<body>
+<!-- Project -->
+<main class="container">
+  <form th:method="post">
+  <div class="header">
+    <header>
+      <h2>Voting System.</h2>
+    </header>
+    <button class="menu-btn" onclick="rotateIcon()">
+      <div class="menu-icon" data-clicked="no"></div>
+      <div class="menu-icon" data-clicked="no"></div>
+      <div class="menu-icon" data-clicked="no"></div>
+    </button>
+
+    <nav class="menu-popup">
+
+      <ol>
+
+        <li>
+          <button th:formaction="@{/user/logout}">
+            <span></span>
+            <label>Logout</label>
+          </button>
+        </li>
+
+        <li>
+          <button>
+            <span></span>
+            <label>About Us</label>
+          </button>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <section class="asset">
+    <img class="bg" th:src='@{/assets/images/images3.jpeg}' width="40" height="40">
+    <ol>
+      <li>
+        <span class="check" id="check1"></span>
+      </li>
+      <li>
+        <span class="check" id="check2"></span>
+      </li>
+      <li>
+        <span class="check" id="check3"></span>
+      </li>
+      <li>
+        <span class="check" id="check4"></span>
+      </li>
+    </ol>
+  </section>
+  <div class="content">
+    <section class="info">
+      Welcome to our voting platform! Your opinion matters, and we’re excited to give you the opportunity to share it. Whether you’re casting your vote in a poll, ranking your favorite content, or participating in a community-driven contest, your voice helps shape the decisions that matter most. We encourage respectful participation and remind everyone that your votes can have a significant impact on the outcome. Thank you for being a part of our community!.
+
+    </section>
+    <div class="user-content">
+
+      <button th:formaction="@{/profile}">
+        <span class="material-symbols-outlined">manage_accounts</span>
+        <h2>User Account</h2>
+        <label>Your feedback matters, join our community today</label>
+      </button>
+
+      <button th:formaction="@{/poll/get}">
+        <span class="material-symbols-outlined">how_to_vote</span>
+        <h2>Cast your vote</h2>
+        <label>Use our secure voting system to cast your vote from anywhere, your feedback matters.</label>
+      </button>
+
+      <button th:formaction="@{/showResult}">
+        <span class="material-symbols-outlined">editor_choice</span>
+        <h2>Voting Result</h2>
+        <label>The results are in, Check out the final vote tally!</label>
+      </button>
+
+      <button th:formaction="@{/create-poll}">
+        <span class="material-symbols-outlined"> rebase_edit</span>
+        <h2>Create Poll</h2>
+        <label>Create your poll now.</label>
+      </button>
+
+      <button th:formaction="@{/news}">
+        <span class="material-symbols-outlined">brand_awareness</span>
+        <h2>News and Updates</h2>
+        <span>Track live results and updates as they happen.</span>
+      </button>
+
+      <button th:formaction="@{/uregister}">
+        <span class="material-symbols-outlined">app_registration</span>
+        <h2>Registration</h2>
+        <span>Sign up to participate and ensure your eligibility to vote.</span>
+      </button>
+
+      <button th:formaction="@{/vote/edit}">
+        <span class="material-symbols-outlined">edit</span>
+        <h2>Edit Poll</h2>
+        <span>Update Poll For New Changes.</span>
+      </button>
+
+      <button>
+        <span class="material-symbols-outlined">help_center</span>
+        <h2>How To Use</h2>
+        <label>Learn how to use our voting system and discover all the details on how to participate. Get step-by-step instructions and more!"</label>
+      </button>
+
+    </div>
+  </div>
+  </form>
+</main>
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

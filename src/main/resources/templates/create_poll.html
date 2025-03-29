@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Make Your Own Poll Now.</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<link rel="stylesheet" th:href="@{/css/create_poll.css}" />
+<body>
+    <main class="container">
+     <form th:object="${pollDTO}" method="post">
+      <section class="txtLabel">
+        <h2>
+          Create Your Own Poll
+        </h2>
+        <label>
+           Want to gather opinions or make decisions quickly? Click the button below to create a custom poll and start collecting votes instantly.
+        </label>
+        <br>
+        <label>
+         <strong>It’s simple, fast, and effective!</strong>
+        </label>
+      </section>
+      </p>
+      
+      <nav class="header">
+        <label>Choose poll type</label>
+        <select th:field="*{polltype}">
+          <optgroup>
+            <option value="Text Poll">Text Poll</option>
+            <option value="Image Poll">Image Poll</option>
+          </optgroup>
+        </select>
+      </nav>
+      
+      <div class="content">
+        
+        <input type="text" placeholder="Ask Question" data-input="inputs" th:field="*{question}">
+        
+        <section class="options">
+
+          <section class="foption" th:each="polloption, pollStat : *{option.options}">
+               <input type="text" class="myoptions" placeholder="Option 1" data-input="inputs" th:field="*{option.options[__${pollStat.index}__]}">
+          </section>
+
+            <button class="add" id="add" th:formaction="@{/create-option}">
+                <span class="material-symbols-outlined">add</span>
+            </button>
+        </section>
+        
+        <div class="line"></div>
+        <section class="timer">
+          <label>Set Poll Duration</label>
+          
+          <nav>
+            
+           <section class="field">
+               <span>Days</span>
+               
+                <select class="dropdown" th:field="*{endDay}">
+                  <optgroup th:each="day : ${days}">
+                     <option value="1" th:text="${day}" th:value="${day}">1</option>
+                  </optgroup>
+                </select>
+                
+                <section class="toggle">
+                    <section>
+                      <input type="checkbox" th:field="*{anonymous}" id="check1">
+                      <label>Anonymous vote</label>
+                      <span class="material-symbols-outlined">help</span>
+                    </section>
+                </section>
+           </section>
+           
+           
+           <section class="field">
+                <span>Hours</span>
+                <select class="dropdown" th:field="*{endTime}">
+                   <optgroup th:each="time : ${timeout}">
+                     <option value="1" th:value="${time}" th:text="${time}">1</option>
+                  </optgroup>
+                </select>
+                
+                <section class="toggle">
+                    <section>
+                      <input type="checkbox" th:field="*{multipleAnswer}" id="check2">
+                      <label>Multiple answers</label>
+                      <span class="material-symbols-outlined">help</span>
+                    </section>
+                </section>
+                
+           </section>
+        </nav>
+     </section>
+        
+        
+      </div>
+      
+      <section class="btns">
+        <button>
+          <span>Cancel</span>
+        </button>
+        <button formaction="poll/save">
+          <span>Save</span>
+        </button>
+      </section>
+     </form>
+    </main>
+   <script th:src="@{/js/create_poll.js}"></script>
+</body>
+
+</html>

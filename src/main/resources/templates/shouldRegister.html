@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>HTML</title>
+
+    <!-- HTML -->
+
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+     <style>
+        *, *::before, *::after {
+	   margin: 0;
+	   padding: 0;
+	   box-sizing: border-box;
+        }
+        .container { 
+           width: 60%;
+           margin: 1rem; 
+	   border: 1px solid black;
+           min-height: 200px;
+           height: auto;
+           margin: 1rem auto;
+           padding: 0.8rem 0;
+         }
+        h2 { font-size: 2rem; }
+        h2 , span {
+           display: block;
+	   text-align: center;
+           font-family: 'Lato';
+        }
+        span { font-size: 1.4rem; margin: 0.5rem 0;}
+        .btns { 
+           display: flex;
+           gap : 0.5rem;
+           align-items: center;
+           justify-content: center;
+	}
+	button {
+          background: red;   
+          color: white;
+          height: 2.3rem;
+          width: min(80px, 40%);
+          font-family: 'Open Sans';
+          margin: 1rem 0;
+	  border: 1px solid white;
+          font-weight: bolder;
+          box-shadow: 0px 0px 16px 0px darkgray;
+          backdrop-filter: blur(1rem);
+         }
+        img {
+          width: 50px;
+          height: 50px;
+          display: block;
+          margin: 0 auto;
+  
+        }
+      </style>
+  </head>
+
+  <body>
+     <main class="container">
+         <form>
+         <img th:src="@{/assets/warnings.png}" width="40" height="40">
+         <h2>Are you sure you want to register a new account</h2>
+         <span>you are going to be logged out and redirected to the registration page</span>
+         <section class="btns"> 
+	      <button th:formaction="@{/topage}">Logout</button>
+          <button th:formaction="@{/home}">Cancel</button>
+	  </section>
+        </form>
+     </main>
+  </body>
+
+</html>

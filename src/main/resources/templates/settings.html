@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voting System | User Profile</title>
+  <link rel="stylesheet" th:href="@{/css/settings.css}"/>
+</head>
+
+<body>
+  <main class="container">
+     <form th:object="${userProfile}" th:method="get">
+       <header>
+         <h2>Edit Profile</h2>
+       </header>
+       <section class="content">
+         <span class="header">personal information</span>
+        <div>
+         <label>Username</label>
+          <input type="text" placeholder="Username" th:field="*{username}" data-dis="yes" class="inputs">
+          
+          <label>FirstName</label>
+          <input type="text" placeholder="First Name" th:field="*{firstName}"  data-dis="yes" class="inputs">
+          
+         
+          <label>Last Name</label>
+          <input type="text" placeholder="Last Name" th:field="*{lastName}" data-dis="yes" class="inputs">
+          <section class="mail">
+             <label>Email</label>
+            <input type="text" placeholder="Email" th:field="*{email}" class="inputs" name="email">
+          </section>
+        </div>
+       </section>
+       
+       <section class="update">
+         <label class="header">change password</label>
+         <input type="password" placeholder="Old Password" th:field="*{oldPassword}" class="pwd inputs">
+         <input type="password" placeholder="New Password" th:field="*{password}" class="pwd inputs">
+         <input type="password" placeholder="Confirm New Password" th:field="*{confirmPassword}" class="pwd inputs">
+         <section class="showPwd">
+             <input type="checkbox" id="check">
+             <label>Show Password</label>
+         </section>
+         <label th:text="${passwordResponse}" class="response"></label>
+         <button type="reset" class="btns">RESET</button>
+         <button th:formaction="@{/user/changePassword}" class="btns">CHANGE</button>
+       </section>
+       
+       
+     </form>
+      <script>
+          let responses = document.querySelectorAll('.response');
+          responses.forEach((response) => {
+              if(response.textContent !== '') {
+                 setTimeout(() => {
+                    response.classList.add('remove');
+                 }, 8000);
+                 setTimeout(() => {
+                    response.style.display = 'none';
+                 }, 8500);
+              }
+          });
+
+          let pwds = document.querySelectorAll('.pwd');
+          let check = document.getElementById('check');
+          check.addEventListener('click',() => {
+              pwds.forEach((pwd) => {
+                 if(check.checked) {
+                     pwd.setAttribute('type', 'text');
+                 }
+                 else {
+                    pwd.setAttribute('type', 'password');
+                 }
+              });
+          });
+      </script>
+  </main>
+</body>
+
+</html>

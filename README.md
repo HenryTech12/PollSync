@@ -1,6 +1,6 @@
-# 🗳️ Voting System
+# 🗳️ PollSync
 
-Welcome to the **Voting System**, a Spring Boot-powered web application that enables users to create, manage, and participate in polls.
+Welcome to PollSync **Voting System**, a Spring Boot-powered web application that enables users to create, manage, and participate in polls.
 
 ## 🚀 Features
 - User authentication & authorization
@@ -20,7 +20,7 @@ VotingSystem/
 │   │   │   ├── dto/             # Data Transfer Objects
 │   │   │   ├── model/           # Database models
 │   │   │   ├── repo/            # Repository layer
-│   │   │   ├── service/         # Business logic
+│   │   │   ├── service/         # Business logic and lots
 │   │   ├── resources/
 │   │   │   ├── static/          # Frontend assets
 │   │   │   ├── templates/       # HTML templates
